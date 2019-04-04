@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{A263
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaApp", "samples\AvaloniaApp\AvaloniaApp.csproj", "{152C7EB0-4D91-43FF-B103-FBD380777AF8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8E9DCB91-7880-430A-A8E8-406E212750FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.ThemeManager.UnitTests", "tests\Avalonia.ThemeManager.UnitTests\Avalonia.ThemeManager.UnitTests.csproj", "{8BD734B7-7F36-41F0-86C4-37F41AC85907}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,9 +52,22 @@ Global
 		{152C7EB0-4D91-43FF-B103-FBD380777AF8}.Release|x64.Build.0 = Release|Any CPU
 		{152C7EB0-4D91-43FF-B103-FBD380777AF8}.Release|x86.ActiveCfg = Release|Any CPU
 		{152C7EB0-4D91-43FF-B103-FBD380777AF8}.Release|x86.Build.0 = Release|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Debug|x64.Build.0 = Debug|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Debug|x86.Build.0 = Debug|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|x64.ActiveCfg = Release|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|x64.Build.0 = Release|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|x86.ActiveCfg = Release|Any CPU
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F104968E-69CB-40E0-BF32-F9CA66BED649} = {6CA09D1C-6F3E-45E3-AB6C-DB23B83E3CC8}
 		{152C7EB0-4D91-43FF-B103-FBD380777AF8} = {A2636C39-1B98-44F7-8D2E-CFE7E2047AD4}
+		{8BD734B7-7F36-41F0-86C4-37F41AC85907} = {8E9DCB91-7880-430A-A8E8-406E212750FA}
 	EndGlobalSection
 EndGlobal
