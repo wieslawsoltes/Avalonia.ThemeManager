@@ -80,7 +80,8 @@ namespace AvaloniaApp
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Themes="clr-namespace:Avalonia.ThemeManager;assembly=Avalonia.ThemeManager"
-        Title="AvaloniaApp" Width="800" Height="600">
+        Title="AvaloniaApp" Width="800" Height="600"
+        Foreground="{DynamicResource ThemeForegroundBrush}">
     <Window.Resources>
         <Themes:ObjectEqualityMultiConverter x:Key="ObjectEqualityMultiConverter"/>
     </Window.Resources>
