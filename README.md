@@ -1,5 +1,7 @@
 # Avalonia Theme Manager
 
+[![NuGet](https://img.shields.io/nuget/v/Avalonia.ThemeManager.svg)](https://www.nuget.org/packages/Avalonia.ThemeManager)
+
 ## About
 
 Theme manager for [Avalonia](https://github.com/AvaloniaUI/Avalonia) applications.
