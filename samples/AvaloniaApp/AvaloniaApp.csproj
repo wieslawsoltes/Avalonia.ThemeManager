@@ -11,6 +11,7 @@
 
   <PropertyGroup>
     <Description>Sample Avalonia theme manager application.</Description>
+    <PackageTags>gui;avalonia;avaloniaui;theme;themes;manager;xaml</PackageTags>
   </PropertyGroup>
 
   <Import Project="..\..\build\Base.props" />

@@ -1,52 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <VersionPrefix>0.8.0.2</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Wiesław Šoltés</Authors>
     <Company>Wiesław Šoltés</Company>
-    <Description>A multi-platform data driven 2D diagram editor.</Description>
     <Copyright>Copyright © Wiesław Šoltés 2019</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/wieslawsoltes/Core2D</PackageProjectUrl>
-    <PackageTags>2d;editor;data;diagram;graphics;geometry;data;shapes;wysiwyg-editor</PackageTags>
+    <PackageProjectUrl>https://github.com/wieslawsoltes/Avalonia.ThemeManager</PackageProjectUrl>
   </PropertyGroup>
-  <PropertyGroup>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup>
-    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'" />
-  <PropertyGroup>
-    <CoreRT>False</CoreRT>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">
-    <CoreRT>True</CoreRT>
-    <DefineConstants>$(DefineConstants);_CORERT;_CORERT_WIN_X64</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64'">
-    <CoreRT>True</CoreRT>
-    <DefineConstants>$(DefineConstants);_CORERT;_CORERT_LINUX_X64</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64'">
-    <CoreRT>True</CoreRT>
-    <DefineConstants>$(DefineConstants);_CORERT;_CORERT_OSX_X64</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net461' and '$(OS)' == 'Unix'">
-    <FrameworkPathOverride>/usr/lib/mono/4.6.1-api</FrameworkPathOverride>
-    <FrameworkPathOverride Condition="$([MSBuild]::IsOsPlatform('OSX'))">/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.6.1-api</FrameworkPathOverride>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
-    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
-  </ItemGroup>
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
-    <PackageReference Include="System.ValueTuple" Version="4.3.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
-  </ItemGroup>
 </Project>
