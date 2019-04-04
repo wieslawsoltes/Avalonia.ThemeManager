@@ -14,16 +14,29 @@ The `ThemeSelector` static `Instance` property neeeds to be initalized before us
 
 The `ThemeSelector` uses `Styles[0]` property of `Windows` to insert selected theme `Style`.
 
-`Program.cs`
+`App.xaml`
+```XAML
+<Application x:Class="AvaloniaApp.App"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Styles>
+        <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml"/>
+        <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml"/>
+    </Application.Styles>
+</Application>
+```
 
+`App.xaml.cs`
 ```C#
 using System;
 using Avalonia;
+using Avalonia.Logging.Serilog;
+using Avalonia.Markup.Xaml;
 using Avalonia.ThemeManager;
 
 namespace AvaloniaApp
 {
-    static class Program
+    public class App : Application
     {
         [STAThread]
         static void Main(string[] args)
@@ -43,13 +56,19 @@ namespace AvaloniaApp
 
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
-                         .UsePlatformDetect();
+                         .UsePlatformDetect()
+                         .UseReactiveUI()
+                         .LogToDebug();
+
+        public override void Initialize()
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
     }
 }
 ```
 
 `MainWindow.xaml`
-
 ```XAML
 <Window x:Class="AvaloniaApp.MainWindow"
         xmlns="https://github.com/avaloniaui"
@@ -59,51 +78,51 @@ namespace AvaloniaApp
     <Window.Resources>
         <Themes:ObjectEqualityMultiConverter x:Key="ObjectEqualityMultiConverter"/>
     </Window.Resources>
-    <Menu>
-        <MenuItem Header="_View">
-            <MenuItem Header="_Theme" DataContext="{x:Static Themes:ThemeSelector.Instance}" Items="{Binding Themes}">
-                <MenuItem.Styles>
-                    <Style Selector="MenuItem">
-                        <Setter Property="Header" Value="{Binding Name}"/>
-                        <Setter Property="Command" Value="{Binding Selector.ApplyTheme}"/>
-                        <Setter Property="CommandParameter" Value="{Binding}"/>
-                        <Setter Property="Icon">
-                            <Template>
-                                <CheckBox>
-                                    <CheckBox.IsChecked>
-                                        <MultiBinding Mode="OneWay" Converter="{StaticResource ObjectEqualityMultiConverter}">
-                                            <Binding Path="DataContext" RelativeSource="{RelativeSource Self}"/>
-                                            <Binding Path="Selector.SelectedTheme"/>
-                                        </MultiBinding>
-                                    </CheckBox.IsChecked>
-                                </CheckBox>
-                            </Template>
-                        </Setter>
-                    </Style>
-                </MenuItem.Styles>
+    <Grid RowDefinitions="Auto,*">
+        <Menu Grid.Row="0">
+            <MenuItem Header="_View">
+                <MenuItem Header="_Theme" DataContext="{x:Static Themes:ThemeSelector.Instance}" Items="{Binding Themes}">
+                    <MenuItem.Styles>
+                        <Style Selector="MenuItem">
+                            <Setter Property="Header" Value="{Binding Name}"/>
+                            <Setter Property="Command" Value="{Binding Selector.ApplyTheme}"/>
+                            <Setter Property="CommandParameter" Value="{Binding}"/>
+                            <Setter Property="Icon">
+                                <Template>
+                                    <CheckBox>
+                                        <CheckBox.IsChecked>
+                                            <MultiBinding Mode="OneWay" Converter="{StaticResource ObjectEqualityMultiConverter}">
+                                                <Binding Path="DataContext" RelativeSource="{RelativeSource Self}"/>
+                                                <Binding Path="Selector.SelectedTheme"/>
+                                            </MultiBinding>
+                                        </CheckBox.IsChecked>
+                                    </CheckBox>
+                                </Template>
+                            </Setter>
+                        </Style>
+                    </MenuItem.Styles>
+                </MenuItem>
             </MenuItem>
-        </MenuItem>
-    </Menu>
+        </Menu>
+    </Grid>
 </Window>
 ```
 
 `MainWindow.xaml.xs`
-
 ```C#
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.ThemeManager;
 
-namespace AvaloniaApp.Views
+namespace AvaloniaApp
 {
-    public class MainWindow : Window
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.AttachDevTools();
-            ThemeSelector.Instance.EnableThemes(this);
         }
 
         private void InitializeComponent()
