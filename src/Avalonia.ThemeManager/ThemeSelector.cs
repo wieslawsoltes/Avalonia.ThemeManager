@@ -16,8 +16,6 @@ namespace Avalonia.ThemeManager
 {
     public sealed class ThemeSelector : ReactiveObject, IThemeSelector
     {
-        public static ThemeSelector Instance;
-
         private ITheme _selectedTheme;
         private IList<ITheme> _themes;
         private IList<Window> _windows;
@@ -91,7 +89,7 @@ namespace Avalonia.ThemeManager
         {
             IDisposable disposable = null;
 
-            window.Styles.Add(Instance.SelectedTheme.Style);
+            window.Styles.Add(_selectedTheme.Style);
 
             window.Opened += (sender, e) =>
             {
