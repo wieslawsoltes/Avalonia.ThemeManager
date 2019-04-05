@@ -1,4 +1,4 @@
-﻿// Copyright (c) Wiesław Šoltés. All rights reserved.
+// Copyright (c) Wiesław Šoltés. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 using System;
 using System.Collections.ObjectModel;
@@ -13,11 +13,11 @@ using ReactiveUI;
 
 namespace Avalonia.ThemeManager
 {
-    public class Theme : ReactiveObject
+    public class Theme : ReactiveObject, ITheme
     {
         private string _name;
         private IStyle _style;
-        private ThemeSelector _selector;
+        private IThemeSelector _selector;
 
         public string Name
         {
@@ -31,7 +31,7 @@ namespace Avalonia.ThemeManager
             set => this.RaiseAndSetIfChanged(ref _style, value);
         }
 
-        public ThemeSelector Selector
+        public IThemeSelector Selector
         {
             get => _selector;
             set => this.RaiseAndSetIfChanged(ref _selector, value);

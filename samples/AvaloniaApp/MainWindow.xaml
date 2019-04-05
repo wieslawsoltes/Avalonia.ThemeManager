@@ -1,16 +1,17 @@
 <Window x:Class="AvaloniaApp.MainWindow"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Themes="clr-namespace:Avalonia.ThemeManager;assembly=Avalonia.ThemeManager"
+        xmlns:app="clr-namespace:AvaloniaApp;assembly=AvaloniaApp"
+        xmlns:manager="clr-namespace:Avalonia.ThemeManager;assembly=Avalonia.ThemeManager"
         Title="AvaloniaApp" Width="800" Height="600"
         Foreground="{DynamicResource ThemeForegroundBrush}">
     <Window.Resources>
-        <Themes:ObjectEqualityMultiConverter x:Key="ObjectEqualityMultiConverter"/>
+        <manager:ObjectEqualityMultiConverter x:Key="ObjectEqualityMultiConverter"/>
     </Window.Resources>
     <Grid RowDefinitions="Auto,*">
         <Menu Grid.Row="0">
             <MenuItem Header="_View">
-                <MenuItem Header="_Theme" DataContext="{x:Static Themes:ThemeSelector.Instance}" Items="{Binding Themes}">
+                <MenuItem Header="_Theme" DataContext="{x:Static app:App.Selector}" Items="{Binding Themes}">
                     <MenuItem.Styles>
                         <Style Selector="MenuItem">
                             <Setter Property="Header" Value="{Binding Name}"/>

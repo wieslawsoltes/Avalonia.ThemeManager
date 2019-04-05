@@ -1,6 +1,7 @@
-﻿// Copyright (c) Wiesław Šoltés. All rights reserved.
+// Copyright (c) Wiesław Šoltés. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -13,37 +14,48 @@ using ReactiveUI;
 
 namespace Avalonia.ThemeManager
 {
-    public class ThemeSelector : ReactiveObject
+    public sealed class ThemeSelector : ReactiveObject, IThemeSelector
     {
         public static ThemeSelector Instance;
 
-        private Theme _selectedTheme;
-        private ObservableCollection<Theme> _themes;
-        private ObservableCollection<Window> _windows;
+        private ITheme _selectedTheme;
+        private IList<ITheme> _themes;
+        private IList<Window> _windows;
 
-        public Theme SelectedTheme
+        public ITheme SelectedTheme
         {
             get => _selectedTheme;
             set => this.RaiseAndSetIfChanged(ref _selectedTheme, value);
         }
 
-        public ObservableCollection<Theme> Themes
+        public IList<ITheme> Themes
         {
             get => _themes;
             set => this.RaiseAndSetIfChanged(ref _themes, value);
         }
 
-        public ObservableCollection<Window> Windows
+        public IList<Window> Windows
         {
             get => _windows;
             set => this.RaiseAndSetIfChanged(ref _windows, value);
         }
 
-        public ThemeSelector(string path)
+        private ThemeSelector()
         {
-            _themes = new ObservableCollection<Theme>();
+        }
 
-            try
+        public static IThemeSelector Create(string path)
+        {
+            return new ThemeSelector()
+            {
+                Themes = new ObservableCollection<ITheme>(),
+                Windows = new ObservableCollection<Window>()
+            }.LoadThemes(path);
+        }
+
+        private IThemeSelector LoadThemes(string path)
+        {
+           try
             {
                 foreach (string file in System.IO.Directory.EnumerateFiles(path, "*.xaml"))
                 {
@@ -64,10 +76,10 @@ namespace Avalonia.ThemeManager
 
             _selectedTheme = _themes.FirstOrDefault();
 
-            _windows = new ObservableCollection<Window>();
+            return this;
         }
 
-        public Theme LoadTheme(string file)
+        public ITheme LoadTheme(string file)
         {
             var name = System.IO.Path.GetFileNameWithoutExtension(file);
             var xaml = System.IO.File.ReadAllText(file);
@@ -97,7 +109,7 @@ namespace Avalonia.ThemeManager
             };
         }
 
-        public void ApplyTheme(Theme theme)
+        public void ApplyTheme(ITheme theme)
         {
             if (theme != null)
             {

@@ -8,6 +8,8 @@ namespace AvaloniaApp
 {
     public class App : Application
     {
+        public static IThemeSelector Selector;
+
         [STAThread]
         static void Main(string[] args)
         {
@@ -16,12 +18,12 @@ namespace AvaloniaApp
 
         static void AppMain(Application app, string[] args)
         {
-            ThemeSelector.Instance = new ThemeSelector("Themes");
-            ThemeSelector.Instance.LoadSelectedTheme("AvaloniaApp.theme");
+            Selector = ThemeSelector.Create("Themes");
+            Selector.LoadSelectedTheme("AvaloniaApp.theme");
 
             app.Run(new MainWindow());
 
-            ThemeSelector.Instance.SaveSelectedTheme("AvaloniaApp.theme");
+            Selector.SaveSelectedTheme("AvaloniaApp.theme");
         }
 
         public static AppBuilder BuildAvaloniaApp()
