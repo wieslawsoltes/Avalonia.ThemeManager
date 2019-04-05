@@ -1,19 +1,59 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6CA09D1C-6F3E-45E3-AB6C-DB23B83E3CC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.ThemeManager", "src\Avalonia.ThemeManager\Avalonia.ThemeManager.csproj", "{F104968E-69CB-40E0-BF32-F9CA66BED649}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.ThemeManager", "src\Avalonia.ThemeManager\Avalonia.ThemeManager.csproj", "{F104968E-69CB-40E0-BF32-F9CA66BED649}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{A2636C39-1B98-44F7-8D2E-CFE7E2047AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaApp", "samples\AvaloniaApp\AvaloniaApp.csproj", "{152C7EB0-4D91-43FF-B103-FBD380777AF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaApp", "samples\AvaloniaApp\AvaloniaApp.csproj", "{152C7EB0-4D91-43FF-B103-FBD380777AF8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8E9DCB91-7880-430A-A8E8-406E212750FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.ThemeManager.UnitTests", "tests\Avalonia.ThemeManager.UnitTests\Avalonia.ThemeManager.UnitTests.csproj", "{8BD734B7-7F36-41F0-86C4-37F41AC85907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.ThemeManager.UnitTests", "tests\Avalonia.ThemeManager.UnitTests\Avalonia.ThemeManager.UnitTests.csproj", "{8BD734B7-7F36-41F0-86C4-37F41AC85907}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{66E7EB25-0ECA-460B-AE4C-37F663050F2A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.nuke = .nuke
+		build.ps1 = build.ps1
+		build.sh = build.sh
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{2A1FE95B-BAB8-4E1C-A956-986D28BB8DD8}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.TXT = LICENSE.TXT
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{E31DC1C5-B9C1-4F0B-9AAC-B3B50ACB9D34}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{5E056F03-4E4A-4F04-A132-2A3E1BD7C45E}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{71C4D519-DFBA-4C90-90E0-3DAE1FC47C68}"
+	ProjectSection(SolutionItems) = preProject
+		build\Avalonia.Desktop.props = build\Avalonia.Desktop.props
+		build\Avalonia.props = build\Avalonia.props
+		build\Avalonia.ReactiveUI.props = build\Avalonia.ReactiveUI.props
+		build\Base.props = build\Base.props
+		build\EmbedXaml.props = build\EmbedXaml.props
+		build\ReactiveUI.props = build\ReactiveUI.props
+		build\Rx.props = build\Rx.props
+		build\XUnit.props = build\XUnit.props
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\build\_build.csproj", "{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +63,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F104968E-69CB-40E0-BF32-F9CA66BED649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -64,10 +101,32 @@ Global
 		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|x64.Build.0 = Release|Any CPU
 		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|x86.ActiveCfg = Release|Any CPU
 		{8BD734B7-7F36-41F0-86C4-37F41AC85907}.Release|x86.Build.0 = Release|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Debug|x64.Build.0 = Debug|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Debug|x86.Build.0 = Debug|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Release|x64.ActiveCfg = Release|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Release|x64.Build.0 = Release|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Release|x86.ActiveCfg = Release|Any CPU
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F104968E-69CB-40E0-BF32-F9CA66BED649} = {6CA09D1C-6F3E-45E3-AB6C-DB23B83E3CC8}
 		{152C7EB0-4D91-43FF-B103-FBD380777AF8} = {A2636C39-1B98-44F7-8D2E-CFE7E2047AD4}
 		{8BD734B7-7F36-41F0-86C4-37F41AC85907} = {8E9DCB91-7880-430A-A8E8-406E212750FA}
+		{E31DC1C5-B9C1-4F0B-9AAC-B3B50ACB9D34} = {66E7EB25-0ECA-460B-AE4C-37F663050F2A}
+		{5E056F03-4E4A-4F04-A132-2A3E1BD7C45E} = {66E7EB25-0ECA-460B-AE4C-37F663050F2A}
+		{71C4D519-DFBA-4C90-90E0-3DAE1FC47C68} = {66E7EB25-0ECA-460B-AE4C-37F663050F2A}
+		{2107A4D4-2210-414C-9FD4-CD6F2D170E7F} = {66E7EB25-0ECA-460B-AE4C-37F663050F2A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D1215A7-0AA5-48FF-B979-28DE67946C40}
 	EndGlobalSection
 EndGlobal
