@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Avalonia;
 using Avalonia.Data.Converters;
 
 namespace Avalonia.ThemeManager
@@ -27,7 +26,7 @@ namespace Avalonia.ThemeManager
             {
                 return values[0].Equals(values[1]);
             }
-            return AvaloniaProperty.UnsetValue; 
+            return AvaloniaProperty.UnsetValue;
         }
     }
 }

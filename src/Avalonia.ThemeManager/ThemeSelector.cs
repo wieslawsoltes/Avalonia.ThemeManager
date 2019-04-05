@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
 using Avalonia.Controls;
@@ -53,7 +52,7 @@ namespace Avalonia.ThemeManager
 
         private IThemeSelector LoadThemes(string path)
         {
-           try
+            try
             {
                 foreach (string file in System.IO.Directory.EnumerateFiles(path, "*.xaml"))
                 {
