@@ -1,13 +1,5 @@
 // Copyright (c) Wiesław Šoltés. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
-using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Reactive.Linq;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Styling;
 using ReactiveUI;
 
