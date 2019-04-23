@@ -65,8 +65,14 @@ namespace Avalonia.ThemeManager
 
             if (_themes.Count == 0)
             {
-                var light = AvaloniaXamlLoader.Parse<StyleInclude>(@"<StyleInclude xmlns='https://github.com/avaloniaui' Source='avares://Avalonia.Themes.Default/Accents/BaseLight.xaml'/>");
-                var dark = AvaloniaXamlLoader.Parse<StyleInclude>(@"<StyleInclude xmlns='https://github.com/avaloniaui' Source='avares://Avalonia.Themes.Default/Accents/BaseDark.xaml'/>");
+                var light = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
+                {
+                    Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseLight.xaml?assembly=Avalonia.Themes.Default")
+                };
+                var dark = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
+                {
+                    Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseDark.xaml?assembly=Avalonia.Themes.Default")
+                };
                 _themes.Add(new Theme() { Name = "Light", Style = light, Selector = this });
                 _themes.Add(new Theme() { Name = "Dark", Style = dark, Selector = this });
             }
