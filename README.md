@@ -2,7 +2,7 @@
 
 [![Build status](https://dev.azure.com/wieslawsoltes/GitHub/_apis/build/status/Sources/Avalonia.ThemeManager)](https://dev.azure.com/wieslawsoltes/GitHub/_build/latest?definitionId=72)
 
-[![NuGet](https://img.shields.io/nuget/v/Avalonia.ThemeManager.svg)](https://www.nuget.org/packages/Avalonia.ThemeManager)
+[![NuGet](https://img.shields.io/nuget/v/Avalonia.ThemeManager.svg)](https://www.nuget.org/packages/Avalonia.ThemeManager) [![MyGet](https://img.shields.io/myget/avaloniathememanager-nightly/vpre/Avalonia.ThemeManager.svg?label=myget)](https://www.myget.org/gallery/avaloniathememanager-nightly) 
 
 [![Github All Releases](https://img.shields.io/github/downloads/wieslawsoltes/avalonia.thememanager/total.svg)](https://github.com/wieslawsoltes/avalonia.thememanager)
 [![GitHub release](https://img.shields.io/github/release/wieslawsoltes/avalonia.thememanager.svg)](https://github.com/wieslawsoltes/avalonia.thememanager)
