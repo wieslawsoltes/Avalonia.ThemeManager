@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <PackageId>Avalonia.ThemeManager</PackageId>
     <Description>Theme manager for Avalonia applications.</Description>
     <PackageTags>gui;avalonia;avaloniaui;theme;themes;manager;xaml</PackageTags>
   </PropertyGroup>
