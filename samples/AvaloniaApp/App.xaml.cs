@@ -2,7 +2,6 @@ using System;
 using Avalonia;
 using Avalonia.Logging.Serilog;
 using Avalonia.Markup.Xaml;
-using Avalonia.ReactiveUI;
 using Avalonia.ThemeManager;
 
 namespace AvaloniaApp
