@@ -7,9 +7,9 @@ namespace Avalonia.ThemeManager
 {
     public interface IThemeSelector
     {
-        ITheme SelectedTheme { get; set; }
-        IList<ITheme> Themes { get; set; }
-        IList<Window> Windows { get; set; }
+        ITheme? SelectedTheme { get; set; }
+        IList<ITheme>? Themes { get; set; }
+        IList<Window>? Windows { get; set; }
         ITheme LoadTheme(string file);
         void EnableThemes(Window window);
         void ApplyTheme(ITheme theme);

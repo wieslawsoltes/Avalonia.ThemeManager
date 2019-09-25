@@ -15,23 +15,23 @@ namespace Avalonia.ThemeManager
 {
     public sealed class ThemeSelector : ReactiveObject, IThemeSelector
     {
-        private ITheme _selectedTheme;
-        private IList<ITheme> _themes;
-        private IList<Window> _windows;
+        private ITheme? _selectedTheme;
+        private IList<ITheme>? _themes;
+        private IList<Window>? _windows;
 
-        public ITheme SelectedTheme
+        public ITheme? SelectedTheme
         {
             get => _selectedTheme;
             set => this.RaiseAndSetIfChanged(ref _selectedTheme, value);
         }
 
-        public IList<ITheme> Themes
+        public IList<ITheme>? Themes
         {
             get => _themes;
             set => this.RaiseAndSetIfChanged(ref _themes, value);
         }
 
-        public IList<Window> Windows
+        public IList<Window>? Windows
         {
             get => _windows;
             set => this.RaiseAndSetIfChanged(ref _windows, value);
@@ -56,14 +56,18 @@ namespace Avalonia.ThemeManager
             {
                 foreach (string file in System.IO.Directory.EnumerateFiles(path, "*.xaml"))
                 {
-                    _themes.Add(LoadTheme(file));
+                    var theme = LoadTheme(file);
+                    if (theme != null)
+                    {
+                        _themes?.Add(theme);
+                    }
                 }
             }
             catch (Exception)
             {
             }
 
-            if (_themes.Count == 0)
+            if (_themes?.Count == 0)
             {
                 var light = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
                 {
@@ -77,7 +81,7 @@ namespace Avalonia.ThemeManager
                 _themes.Add(new Theme() { Name = "Dark", Style = dark, Selector = this });
             }
 
-            _selectedTheme = _themes.FirstOrDefault();
+            _selectedTheme = _themes?.FirstOrDefault();
 
             return this;
         }
@@ -92,23 +96,35 @@ namespace Avalonia.ThemeManager
 
         public void EnableThemes(Window window)
         {
-            IDisposable disposable = null;
+            IDisposable? disposable = null;
 
-            window.Styles.Add(_selectedTheme.Style);
+            if (_selectedTheme != null)
+            {
+                window.Styles.Add(_selectedTheme.Style); 
+            }
 
             window.Opened += (sender, e) =>
             {
-                _windows.Add(window);
-                disposable = this.WhenAnyValue(x => x.SelectedTheme).Where(x => x != null).Subscribe(x =>
+                if (_windows != null)
                 {
-                    window.Styles[0] = x.Style;
-                });
+                    _windows.Add(window);
+                    disposable = this.WhenAnyValue(x => x.SelectedTheme).Where(x => x != null).Subscribe(x =>
+                    {
+                        if (x != null)
+                        {
+                            window.Styles[0] = x.Style; 
+                        }
+                    }); 
+                }
             };
 
             window.Closing += (sender, e) =>
             {
                 disposable?.Dispose();
-                _windows.Remove(window);
+                if (_windows != null)
+                {
+                    _windows.Remove(window); 
+                }
             };
         }
 

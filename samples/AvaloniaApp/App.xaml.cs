@@ -1,29 +1,21 @@
 using System;
 using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Logging.Serilog;
 using Avalonia.Markup.Xaml;
+using Avalonia.ReactiveUI;
 using Avalonia.ThemeManager;
 
 namespace AvaloniaApp
 {
     public class App : Application
     {
-        public static IThemeSelector Selector;
+        public static IThemeSelector? Selector { get; set; }
 
         [STAThread]
         static void Main(string[] args)
         {
-            BuildAvaloniaApp().Start(AppMain, args);
-        }
-
-        static void AppMain(Application app, string[] args)
-        {
-            Selector = ThemeSelector.Create("Themes");
-            Selector.LoadSelectedTheme("AvaloniaApp.theme");
-
-            app.Run(new MainWindow());
-
-            Selector.SaveSelectedTheme("AvaloniaApp.theme");
+            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
         }
 
         public static AppBuilder BuildAvaloniaApp()
@@ -35,6 +27,25 @@ namespace AvaloniaApp
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);
+        }
+
+        public override void OnFrameworkInitializationCompleted()
+        {
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktopLifetime)
+            {
+                Selector = ThemeSelector.Create("Themes");
+                Selector.LoadSelectedTheme("AvaloniaApp.theme");
+                desktopLifetime.MainWindow = new MainWindow()
+                {
+                    DataContext = Selector
+                };
+                desktopLifetime.Exit += (sennder, e) => Selector.SaveSelectedTheme("AvaloniaApp.theme");
+            }
+            else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewLifetime)
+            {
+                //singleViewLifetime.MainView = new MainView();
+            }
+            base.OnFrameworkInitializationCompleted();
         }
     }
 }

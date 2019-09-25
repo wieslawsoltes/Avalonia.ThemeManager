@@ -11,11 +11,11 @@
     <Grid RowDefinitions="Auto,*">
         <Menu Grid.Row="0">
             <MenuItem Header="_View">
-                <MenuItem Header="_Theme" DataContext="{x:Static app:App.Selector}" Items="{Binding Themes}">
+                <MenuItem Header="_Theme" Items="{Binding Themes}">
                     <MenuItem.Styles>
                         <Style Selector="MenuItem">
                             <Setter Property="Header" Value="{Binding Name}"/>
-                            <Setter Property="Command" Value="{Binding Selector.ApplyTheme}"/>
+                            <Setter Property="Command" Value="{Binding ApplyTheme}"/>
                             <Setter Property="CommandParameter" Value="{Binding}"/>
                             <Setter Property="Icon">
                                 <Template>
@@ -23,7 +23,7 @@
                                         <CheckBox.IsChecked>
                                             <MultiBinding Mode="OneWay" Converter="{StaticResource ObjectEqualityMultiConverter}">
                                                 <Binding Path="DataContext" RelativeSource="{RelativeSource Self}"/>
-                                                <Binding Path="Selector.SelectedTheme"/>
+                                                <Binding Path="SelectedTheme"/>
                                             </MultiBinding>
                                         </CheckBox.IsChecked>
                                     </CheckBox>

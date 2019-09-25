@@ -10,7 +10,7 @@ namespace AvaloniaApp
         {
             this.InitializeComponent();
             this.AttachDevTools();
-            App.Selector.EnableThemes(this);
+            App.Selector?.EnableThemes(this);
         }
 
         private void InitializeComponent()

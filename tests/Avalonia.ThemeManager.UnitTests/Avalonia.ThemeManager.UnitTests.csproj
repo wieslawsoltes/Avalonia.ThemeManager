@@ -4,6 +4,7 @@
     <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <Import Project="..\..\build\Base.props" />
