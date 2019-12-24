@@ -146,6 +146,23 @@ namespace AvaloniaApp
 
 The `EnableThemes(...);` can be used to enable themes for multiple windows.
 
+## NuGet
+
+Avalonia theme manager is delivered as a NuGet package.
+
+You can find the packages here [NuGet](https://www.nuget.org/packages/Avalonia.ThemeManager/) and install the package like this:
+
+`Install-Package Avalonia.ThemeManager`
+
+or by using nightly build feed:
+* Add `https://www.myget.org/F/avaloniathememanager-nightly/api/v2` to your package sources
+* Alternative nightly build feed `https://pkgs.dev.azure.com/wieslawsoltes/GitHub/_packaging/CI/nuget/v3/index.json`
+* Update your package using `Avalonia.ThemeManager` feed
+
+and install the package like this:
+
+`Install-Package Avalonia.ThemeManager -Pre`
+
 ## License
 
 Avalonia.ThemeManager is licensed under the [MIT license](LICENSE.TXT).
