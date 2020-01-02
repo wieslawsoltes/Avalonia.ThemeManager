@@ -9,5 +9,6 @@ namespace Avalonia.ThemeManager
         string Name { get; set; }
         IStyle? Style { get; set; }
         IThemeSelector? Selector { get; set; }
+        void ApplyTheme();
     }
 }
