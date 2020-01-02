@@ -28,5 +28,10 @@ namespace Avalonia.ThemeManager
             get => _selector;
             set => this.RaiseAndSetIfChanged(ref _selector, value);
         }
+
+        public void ApplyTheme()
+        {
+            Selector?.ApplyTheme(this);
+        }
     }
 }
