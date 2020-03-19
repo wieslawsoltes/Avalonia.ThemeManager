@@ -98,7 +98,7 @@ namespace Avalonia.ThemeManager
         {
             IDisposable? disposable = null;
 
-            if (_selectedTheme != null)
+            if (_selectedTheme != null && _selectedTheme.Style != null)
             {
                 window.Styles.Add(_selectedTheme.Style); 
             }
@@ -110,7 +110,7 @@ namespace Avalonia.ThemeManager
                     _windows.Add(window);
                     disposable = this.WhenAnyValue(x => x.SelectedTheme).Where(x => x != null).Subscribe(x =>
                     {
-                        if (x != null)
+                        if (x != null && x.Style != null)
                         {
                             window.Styles[0] = x.Style; 
                         }
