@@ -90,7 +90,7 @@ namespace Avalonia.ThemeManager
         {
             var name = System.IO.Path.GetFileNameWithoutExtension(file);
             var xaml = System.IO.File.ReadAllText(file);
-            var style = AvaloniaXamlLoader.Parse<IStyle>(xaml);
+            var style = AvaloniaRuntimeXamlLoader.Parse<IStyle>(xaml);
             return new Theme() { Name = name, Style = style, Selector = this };
         }
 
