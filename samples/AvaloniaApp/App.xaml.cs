@@ -21,7 +21,7 @@ namespace AvaloniaApp
             => AppBuilder.Configure<App>()
                          .UsePlatformDetect()
                          .UseReactiveUI()
-                         .LogToDebug();
+                         .LogToTrace();
 
         public override void Initialize()
         {
