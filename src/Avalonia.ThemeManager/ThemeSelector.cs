@@ -145,7 +145,7 @@ namespace Avalonia.ThemeManager
                     var name = System.IO.File.ReadAllText(file);
                     if (name != null)
                     {
-                        var theme = _themes.FirstOrDefault(x => x.Name == name);
+                        var theme = _themes?.FirstOrDefault(x => x.Name == name);
                         if (theme != null)
                         {
                             SelectedTheme = theme;
