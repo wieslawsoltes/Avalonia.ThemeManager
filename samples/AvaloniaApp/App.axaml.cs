@@ -9,7 +9,7 @@ namespace AvaloniaApp
 {
     public class App : Application
     {
-        public static IThemeSelector? Selector { get; set; }
+        public static ThemeSelector? Selector { get; set; }
 
         [STAThread]
         static void Main(string[] args)
@@ -39,10 +39,6 @@ namespace AvaloniaApp
                     DataContext = Selector
                 };
                 desktopLifetime.Exit += (sennder, e) => Selector.SaveSelectedTheme("AvaloniaApp.theme");
-            }
-            else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewLifetime)
-            {
-                //singleViewLifetime.MainView = new MainView();
             }
             base.OnFrameworkInitializationCompleted();
         }

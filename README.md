@@ -46,7 +46,7 @@ namespace AvaloniaApp
 {
     public class App : Application
     {
-        public static IThemeSelector Selector;
+        public static ThemeSelector Selector;
 
         [STAThread]
         static void Main(string[] args)

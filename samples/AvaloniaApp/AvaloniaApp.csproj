@@ -3,8 +3,6 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net5.0;net461</TargetFrameworks>
     <OutputType>WinExe</OutputType>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
     <IsPackable>False</IsPackable>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -27,12 +25,6 @@
   <Import Project="..\..\build\Avalonia.Diagnostics.props" />
   <Import Project="..\..\build\Avalonia.ReactiveUI.props" />
   <Import Project="..\..\build\ReactiveUI.props" />
-
-  <ItemGroup>
-    <Compile Include="**\*.cs" Exclude="obj\**" />
-  </ItemGroup>
-
-  <Import Project="..\..\build\EmbedXaml.props" />
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Avalonia.ThemeManager\Avalonia.ThemeManager.csproj" />

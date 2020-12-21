@@ -1,5 +1,3 @@
-// Copyright (c) Wiesław Šoltés. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,19 +11,19 @@ using ReactiveUI;
 
 namespace Avalonia.ThemeManager
 {
-    public sealed class ThemeSelector : ReactiveObject, IThemeSelector
+    public class ThemeSelector : ReactiveObject
     {
-        private ITheme? _selectedTheme;
-        private IList<ITheme>? _themes;
+        private Theme? _selectedTheme;
+        private IList<Theme>? _themes;
         private IList<Window>? _windows;
 
-        public ITheme? SelectedTheme
+        public Theme? SelectedTheme
         {
             get => _selectedTheme;
             set => this.RaiseAndSetIfChanged(ref _selectedTheme, value);
         }
 
-        public IList<ITheme>? Themes
+        public IList<Theme>? Themes
         {
             get => _themes;
             set => this.RaiseAndSetIfChanged(ref _themes, value);
@@ -41,16 +39,16 @@ namespace Avalonia.ThemeManager
         {
         }
 
-        public static IThemeSelector Create(string path)
+        public static ThemeSelector Create(string path)
         {
             return new ThemeSelector()
             {
-                Themes = new ObservableCollection<ITheme>(),
+                Themes = new ObservableCollection<Theme>(),
                 Windows = new ObservableCollection<Window>()
             }.LoadThemes(path);
         }
 
-        private IThemeSelector LoadThemes(string path)
+        private ThemeSelector LoadThemes(string path)
         {
             try
             {
@@ -65,20 +63,12 @@ namespace Avalonia.ThemeManager
             }
             catch (Exception)
             {
+                // ignored
             }
 
             if (_themes?.Count == 0)
             {
-                var light = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
-                {
-                    Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseLight.xaml?assembly=Avalonia.Themes.Default")
-                };
-                var dark = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
-                {
-                    Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseDark.xaml?assembly=Avalonia.Themes.Default")
-                };
-                _themes.Add(new Theme() { Name = "Light", Style = light, Selector = this });
-                _themes.Add(new Theme() { Name = "Dark", Style = dark, Selector = this });
+                LoadDefaultThemes();
             }
 
             _selectedTheme = _themes?.FirstOrDefault();
@@ -86,7 +76,21 @@ namespace Avalonia.ThemeManager
             return this;
         }
 
-        public ITheme LoadTheme(string file)
+        public virtual void LoadDefaultThemes()
+        {
+            var light = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
+            {
+                Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseLight.xaml?assembly=Avalonia.Themes.Default")
+            };
+            var dark = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
+            {
+                Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseDark.xaml?assembly=Avalonia.Themes.Default")
+            };
+            _themes.Add(new Theme() {Name = "Light", Style = light, Selector = this});
+            _themes.Add(new Theme() {Name = "Dark", Style = dark, Selector = this});
+        }
+
+        public Theme LoadTheme(string file)
         {
             var name = System.IO.Path.GetFileNameWithoutExtension(file);
             var xaml = System.IO.File.ReadAllText(file);
@@ -128,7 +132,7 @@ namespace Avalonia.ThemeManager
             };
         }
 
-        public void ApplyTheme(ITheme theme)
+        public void ApplyTheme(Theme theme)
         {
             if (theme != null)
             {
@@ -166,6 +170,7 @@ namespace Avalonia.ThemeManager
             }
             catch (Exception)
             {
+                // ignored
             }
         }
     }
