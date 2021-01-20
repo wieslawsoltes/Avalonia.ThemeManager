@@ -86,8 +86,8 @@ namespace Avalonia.ThemeManager
             {
                 Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseDark.xaml?assembly=Avalonia.Themes.Default")
             };
-            _themes.Add(new Theme() {Name = "Light", Style = light, Selector = this});
-            _themes.Add(new Theme() {Name = "Dark", Style = dark, Selector = this});
+            _themes?.Add(new Theme() {Name = "Light", Style = light, Selector = this});
+            _themes?.Add(new Theme() {Name = "Dark", Style = dark, Selector = this});
         }
 
         public Theme LoadTheme(string file)
