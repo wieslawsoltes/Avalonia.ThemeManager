@@ -82,19 +82,11 @@ namespace Avalonia.ThemeManager
         {
             new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
             {
-                Source = new Uri("avares://Avalonia.Themes.Fluent/Accents/Base.xaml")
-            },
-            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
-            {
-                Source = new Uri("avares://Avalonia.Themes.Fluent/Accents/BaseLight.xaml")
+                Source = new Uri("avares://Avalonia.Themes.Default/DefaultTheme.xaml")
             },
             new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
             {
                 Source = new Uri("avares://Avalonia.Themes.Default/Accents/BaseLight.xaml")
-            },
-            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
-            {
-                Source = new Uri("avares://Avalonia.Themes.Default/DefaultTheme.xaml")
             }
         };
 
@@ -102,19 +94,11 @@ namespace Avalonia.ThemeManager
         {
             new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
             {
-                Source = new Uri("avares://Avalonia.Themes.Fluent/Accents/Base.xaml")
-            },
-            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
-            {
-                Source = new Uri("avares://Avalonia.Themes.Fluent/Accents/BaseDark.xaml")
+                Source = new Uri("avares://Avalonia.Themes.Default/DefaultTheme.xaml")
             },
             new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
             {
                 Source = new Uri("avares://Avalonia.Themes.Default/Accents/BaseDark.xaml")
-            },
-            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
-            {
-                Source = new Uri("avares://Avalonia.Themes.Default/DefaultTheme.xaml")
             }
         };
   
