@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Styling;
+using Avalonia.Threading;
 using ReactiveUI;
 
 namespace Avalonia.ThemeManager
@@ -162,13 +164,13 @@ namespace Avalonia.ThemeManager
                 if (_windows != null)
                 {
                     _windows.Add(window);
-                    disposable = this.WhenAnyValue(x => x.SelectedTheme).Where(x => x != null).Subscribe(x =>
-                    {
-                        if (x != null && x.Style != null)
+                    disposable = this.WhenAnyValue(x => x.SelectedTheme)
+                        .Where(x => x != null)
+                        .ObserveOn(RxApp.MainThreadScheduler)
+                        .Subscribe(x =>
                         {
-                            window.Styles[0] = x.Style; 
-                        }
-                    }); 
+                            SelectedThemeChanged(window, x);
+                        }); 
                 }
             };
 
@@ -180,6 +182,23 @@ namespace Avalonia.ThemeManager
                     _windows.Remove(window); 
                 }
             };
+        }
+
+        private static void SelectedThemeChanged(Window window, Theme? theme)
+        {
+            if (theme?.Style == null)
+            {
+                return;
+            }
+
+            try
+            {
+                window.Styles[0] = theme.Style;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"{ex.Message}");
+            }
         }
 
         public void ApplyTheme(Theme theme)
