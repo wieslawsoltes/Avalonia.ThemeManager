@@ -76,18 +76,68 @@ namespace Avalonia.ThemeManager
             return this;
         }
 
+        public static Styles DefaultLight = new Styles
+        {
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Fluent/Accents/Base.xaml")
+            },
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Fluent/Accents/BaseLight.xaml")
+            },
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Default/Accents/BaseLight.xaml")
+            },
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Default/DefaultTheme.xaml")
+            }
+        };
+
+        public static Styles DefaultDark = new Styles
+        {
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Fluent/Accents/Base.xaml")
+            },
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Fluent/Accents/BaseDark.xaml")
+            },
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Default/Accents/BaseDark.xaml")
+            },
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Default/DefaultTheme.xaml")
+            }
+        };
+  
+        public static Styles FluentLight = new Styles
+        {
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Fluent/FluentLight.xaml")
+            }
+        };
+
+        public static Styles FluentDark = new Styles
+        {
+            new StyleInclude(new Uri("avares://Avalonia.ThemeManager/Styles"))
+            {
+                Source = new Uri("avares://Avalonia.Themes.Fluent/FluentDark.xaml")
+            }
+        };
+
         public virtual void LoadDefaultThemes()
         {
-            var light = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
-            {
-                Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseLight.xaml?assembly=Avalonia.Themes.Default")
-            };
-            var dark = new StyleInclude(new Uri("resm:Styles?assembly=Avalonia.ThemeManager"))
-            {
-                Source = new Uri("resm:Avalonia.Themes.Default.Accents.BaseDark.xaml?assembly=Avalonia.Themes.Default")
-            };
-            _themes?.Add(new Theme() {Name = "Light", Style = light, Selector = this});
-            _themes?.Add(new Theme() {Name = "Dark", Style = dark, Selector = this});
+            _themes?.Add(new Theme() {Name = "Default Light", Style = DefaultLight, Selector = this});
+            _themes?.Add(new Theme() {Name = "Default Dark", Style = DefaultDark, Selector = this});
+            _themes?.Add(new Theme() {Name = "Fluent Light", Style = FluentLight, Selector = this});
+            _themes?.Add(new Theme() {Name = "Fluent Dark", Style = FluentDark, Selector = this});
         }
 
         public Theme LoadTheme(string file)
