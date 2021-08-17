@@ -52,6 +52,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{71C4D519
 		build\ReactiveUI.props = build\ReactiveUI.props
 		build\ReferenceAssemblies.props = build\ReferenceAssemblies.props
 		build\XUnit.props = build\XUnit.props
+		build\SourceLink.props = build\SourceLink.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\build\_build.csproj", "{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}"
