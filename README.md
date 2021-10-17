@@ -1,6 +1,7 @@
 # Avalonia Theme Manager
 
-[![Build status](https://dev.azure.com/wieslawsoltes/GitHub/_apis/build/status/Sources/Avalonia.ThemeManager)](https://dev.azure.com/wieslawsoltes/GitHub/_build/latest?definitionId=72)
+[![Build Status](https://dev.azure.com/wieslawsoltes/GitHub/_apis/build/status/wieslawsoltes.Avalonia.ThemeManager?branchName=master)](https://dev.azure.com/wieslawsoltes/GitHub/_build/latest?definitionId=97&branchName=master)
+[![CI](https://github.com/wieslawsoltes/Avalonia.ThemeManager/actions/workflows/build.yml/badge.svg)](https://github.com/wieslawsoltes/Avalonia.ThemeManager/actions/workflows/build.yml)
 
 [![NuGet](https://img.shields.io/nuget/v/Avalonia.ThemeManager.svg)](https://www.nuget.org/packages/Avalonia.ThemeManager)
 [![NuGet](https://img.shields.io/nuget/dt/Avalonia.ThemeManager.svg)](https://www.nuget.org/packages/Avalonia.ThemeManager)
