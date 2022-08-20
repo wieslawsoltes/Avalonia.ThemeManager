@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net461;net5.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net461;net6.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -13,11 +13,12 @@
   </PropertyGroup>
 
   <Import Project="..\..\build\Base.props" />
-  <!--<Import Project="..\..\build\SignAssembly.props" />-->
+  <Import Project="..\..\build\SignAssembly.props" />
   <Import Project="..\..\build\SourceLink.props" />
   <Import Project="..\..\build\ReferenceAssemblies.props" />
   <Import Project="..\..\build\Avalonia.props" />
-  <Import Project="..\..\build\Avalonia.Markup.Xaml.Loader.props" />
-  <Import Project="..\..\build\ReactiveUI.props" />
+  <Import Project="..\..\build\Avalonia.Themes.Fluent.props" />
+  <Import Project="..\..\build\Avalonia.Themes.Simple.props" />
+  <Import Project="..\..\build\CommunityToolkit.Mvvm.props" />
 
 </Project>

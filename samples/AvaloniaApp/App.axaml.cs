@@ -2,45 +2,44 @@ using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Avalonia.ReactiveUI;
 using Avalonia.ThemeManager;
 
-namespace AvaloniaApp
+namespace AvaloniaApp;
+
+public class App : Application
 {
-    public class App : Application
+    public static IThemeManager? ThemeManager;
+
+    [STAThread]
+    static void Main(string[] args)
     {
-        public static ThemeSelector? Selector { get; set; }
+        BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+    }
 
-        [STAThread]
-        static void Main(string[] args)
+    public static AppBuilder BuildAvaloniaApp()
+        => AppBuilder.Configure<App>()
+            .UsePlatformDetect()
+            .LogToTrace();
+
+    public override void Initialize()
+    {
+#if true
+        ThemeManager = new FluentThemeManager();
+#else
+        ThemeManager = new SimpleThemeManager();
+#endif
+        ThemeManager.Initialize(this);
+
+        AvaloniaXamlLoader.Load(this);
+    }
+
+    public override void OnFrameworkInitializationCompleted()
+    {
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktopLifetime)
         {
-            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+            desktopLifetime.MainWindow = new MainWindow();
         }
-
-        public static AppBuilder BuildAvaloniaApp()
-            => AppBuilder.Configure<App>()
-                         .UsePlatformDetect()
-                         .UseReactiveUI()
-                         .LogToTrace();
-
-        public override void Initialize()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
-
-        public override void OnFrameworkInitializationCompleted()
-        {
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktopLifetime)
-            {
-                Selector = ThemeSelector.Create("Themes");
-                Selector.LoadSelectedTheme("AvaloniaApp.theme");
-                desktopLifetime.MainWindow = new MainWindow()
-                {
-                    DataContext = Selector
-                };
-                desktopLifetime.Exit += (sennder, e) => Selector.SaveSelectedTheme("AvaloniaApp.theme");
-            }
-            base.OnFrameworkInitializationCompleted();
-        }
+  
+        base.OnFrameworkInitializationCompleted();
     }
 }

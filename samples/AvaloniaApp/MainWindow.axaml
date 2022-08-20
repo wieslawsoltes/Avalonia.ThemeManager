@@ -1,23 +1,23 @@
 <Window x:Class="AvaloniaApp.MainWindow"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AvaloniaApp"
-        Title="AvaloniaApp" Width="1100" Height="700"
+        Title="Avalonia Theme Manager" Width="1120" Height="700"
+        mc:Ignorable="d" d:DesignWidth="1120" d:DesignHeight="700"
         Foreground="{DynamicResource ThemeForegroundBrush}">
-    <Grid RowDefinitions="Auto,*">
-        <Menu Grid.Row="0">
-            <MenuItem Header="_Theme" Items="{Binding Themes}">
-                <MenuItem.Styles>
-                    <Style Selector="MenuItem">
-                        <Setter Property="Header" Value="{Binding Name}"/>
-                        <Setter Property="Command" Value="{Binding ApplyTheme}"/>
-                        <Setter Property="CommandParameter" Value="{Binding}"/>
-                    </Style>
-                </MenuItem.Styles>
-            </MenuItem>
-        </Menu>
-        <Panel Grid.Row="1">
-            <local:PreviewPage/>
-        </Panel>
-    </Grid>
+  <Window.Resources>
+    <StreamGeometry x:Key="DarkTheme">M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Zm0-2V4a8 8 0 1 1 0 16Z</StreamGeometry>
+  </Window.Resources>
+  <Grid RowDefinitions="Auto,*">
+    <Panel Grid.Row="0" Margin="40,20,40,20">
+      <Button x:Name="Theme" Background="Transparent">
+        <PathIcon Width="24" Height="24" Opacity="0.6" Data="{StaticResource DarkTheme}" />
+      </Button>
+    </Panel>
+    <Panel Grid.Row="1">
+      <local:PreviewPage HorizontalAlignment="Center" />
+    </Panel>
+  </Grid>
 </Window>
