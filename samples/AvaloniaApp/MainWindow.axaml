@@ -18,7 +18,10 @@
       </Button>
     </Panel>
     <Panel Grid.Row="1">
-      <local:PreviewPage HorizontalAlignment="Center" />
+      <Grid ColumnDefinitions="Auto, 8, *">
+        <local:PreviewPage Grid.Column="0" HorizontalAlignment="Center" />
+        <local:ColorsPage Grid.Column="2" HorizontalAlignment="Center" />
+      </Grid>
     </Panel>
   </Grid>
 </Window>
