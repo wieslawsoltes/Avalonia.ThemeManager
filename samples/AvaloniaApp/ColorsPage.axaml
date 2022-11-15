@@ -1,0 +1,66 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:AvaloniaApp"
+             mc:Ignorable="d" d:DesignWidth="1120" d:DesignHeight="700"
+             x:Class="AvaloniaApp.ColorsPage">
+
+  <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+                VerticalScrollBarVisibility="Auto"
+                HorizontalAlignment="Stretch">
+
+    <WrapPanel Margin="40 0 40 0">
+
+      <!-- System Control Colors -->
+      <!-- https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/BaseDark.xaml -->
+      <!-- https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/FluentControlResourcesDark.xaml -->
+      <!-- https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/BaseLight.xaml -->
+      <!-- https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/FluentControlResourcesLight.xaml -->
+
+      <local:ColorPage Color="{DynamicResource SystemAltHighColor}" Key="SystemAltHighColor" />
+      <local:ColorPage Color="{DynamicResource SystemAltLowColor}" Key="SystemAltLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemAltMediumColor}" Key="SystemAltMediumColor" />
+      <local:ColorPage Color="{DynamicResource SystemAltMediumHighColor}" Key="SystemAltMediumHighColor" />
+      <local:ColorPage Color="{DynamicResource SystemAltMediumLowColor}" Key="SystemAltMediumLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemBaseHighColor}" Key="SystemBaseHighColor" />
+      <local:ColorPage Color="{DynamicResource SystemBaseLowColor}" Key="SystemBaseLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemBaseMediumColor}" Key="SystemBaseMediumColor" />
+      <local:ColorPage Color="{DynamicResource SystemBaseMediumHighColor}" Key="SystemBaseMediumHighColor" />
+      <local:ColorPage Color="{DynamicResource SystemBaseMediumLowColor}" Key="SystemBaseMediumLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeAltLowColor}" Key="SystemChromeAltLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeBlackHighColor}" Key="SystemChromeBlackHighColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeBlackLowColor}" Key="SystemChromeBlackLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeBlackMediumLowColor}" Key="SystemChromeBlackMediumLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeBlackMediumColor}" Key="SystemChromeBlackMediumColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeDisabledHighColor}" Key="SystemChromeDisabledHighColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeDisabledLowColor}" Key="SystemChromeDisabledLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeHighColor}" Key="SystemChromeHighColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeLowColor}" Key="SystemChromeLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeMediumColor}" Key="SystemChromeMediumColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeMediumLowColor}" Key="SystemChromeMediumLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeWhiteColor}" Key="SystemChromeWhiteColor" />
+      <local:ColorPage Color="{DynamicResource SystemChromeGrayColor}" Key="SystemChromeGrayColor" />
+      <local:ColorPage Color="{DynamicResource SystemListLowColor}" Key="SystemListLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemListMediumColor}" Key="SystemListMediumColor" />
+      <local:ColorPage Color="{DynamicResource SystemErrorTextColor}" Key="SystemErrorTextColor" />
+      <local:ColorPage Color="{DynamicResource SystemRevealListLowColor}" Key="SystemRevealListLowColor" />
+      <local:ColorPage Color="{DynamicResource SystemRevealListMediumColor}" Key="SystemRevealListMediumColor" />
+
+      <!-- Accent Colours -->
+      <!-- https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/AccentColors.xaml -->
+
+      <local:ColorPage Color="{DynamicResource SystemAccentColor}" Key="SystemAccentColor" />
+      <local:ColorPage Color="{DynamicResource SystemAccentColorDark1}" Key="SystemAccentColorDark1" />
+      <local:ColorPage Color="{DynamicResource SystemAccentColorDark2}" Key="SystemAccentColorDark2" />
+      <local:ColorPage Color="{DynamicResource SystemAccentColorDark3}" Key="SystemAccentColorDark3" />
+      <local:ColorPage Color="{DynamicResource SystemAccentColorLight1}" Key="SystemAccentColorLight1" />
+      <local:ColorPage Color="{DynamicResource SystemAccentColorLight2}" Key="SystemAccentColorLight2" />
+      <local:ColorPage Color="{DynamicResource SystemAccentColorLight3}" Key="SystemAccentColorLight3" />
+
+    </WrapPanel>
+
+  </ScrollViewer>
+
+</UserControl>
+
