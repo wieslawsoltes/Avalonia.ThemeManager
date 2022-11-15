@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AvaloniaApp"
-        Title="Avalonia Theme Manager" Width="1120" Height="700"
-        mc:Ignorable="d" d:DesignWidth="1120" d:DesignHeight="700"
+        Title="Avalonia Theme Manager" Width="1120" Height="750"
+        mc:Ignorable="d" d:DesignWidth="1120" d:DesignHeight="750"
         WindowStartupLocation="CenterScreen"
         Foreground="{DynamicResource ThemeForegroundBrush}">
   <Window.Resources>
