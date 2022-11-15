@@ -1,0 +1,65 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cp="clr-namespace:ThemeEditor.Controls.ColorPicker;assembly=ThemeEditor.Controls.ColorPicker"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650"
+             x:Class="AvaloniaApp.ColorPage">
+  <UserControl.Styles>
+    <Style Selector="StackPanel.color">
+      <Setter Property="Orientation" Value="Vertical" />
+      <Setter Property="Spacing" Value="0" />
+    </Style>
+    <Style Selector="Border.color">
+      <Setter Property="Margin" Value="4" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="BorderBrush" Value="{DynamicResource SystemChromeAltLowColor}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Width" Value="230" />
+      <Setter Property="Height" Value="32" />
+    </Style>
+    <Style Selector="TextBlock.color">
+      <Setter Property="Margin" Value="4" />
+      <Setter Property="Width" Value="230" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="TextAlignment" Value="Left" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+  </UserControl.Styles>
+  <Panel>
+    <StackPanel Classes="color" Background="Transparent" ClipToBounds="False">
+      <TextBlock Classes="color" Text="{Binding $parent[UserControl].Key}" />
+      <Panel Name="Panel" Background="Transparent">
+        <Popup Name="Popup"
+               IsLightDismissEnabled="True"
+               PlacementMode="AnchorAndGravity"
+               PlacementGravity="TopLeft"
+               PlacementAnchor="TopLeft">
+          <Border Background="{DynamicResource SystemAltHighColor}"
+                  BorderBrush="{DynamicResource SystemChromeAltLowColor}"
+                  BorderThickness="1"
+                  Width="350" Height="400"
+                  CornerRadius="0">
+            <cp:ColorPicker Color="{Binding $parent[UserControl].Color, Mode=TwoWay}"
+                            Margin="8">
+              <cp:ColorPicker.Styles>
+                <Style Selector="cp|ColorPicker /template/ cp|ColorPickerValuesPresenter">
+                  <Setter Property="MinHeight" Value="200" />
+                  <Setter Property="MinWidth" Value="200" />
+                  <Setter Property="IsVisible" Value="True" />
+                </Style>
+                <Style Selector="cp|ColorPicker /template/ cp|ColorPickerPropertiesPresenter#PART_ColorPickerPropertiesPresenter">
+                  <Setter Property="(DockPanel.Dock)" Value="Bottom" />
+                  <Setter Property="IsVisible" Value="True" />
+                </Style>
+              </cp:ColorPicker.Styles>
+            </cp:ColorPicker>
+          </Border>
+        </Popup>
+        <Border Name="Border" Classes="color" />
+      </Panel>
+    </StackPanel>
+  </Panel>
+</UserControl>
