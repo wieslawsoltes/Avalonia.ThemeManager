@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:AvaloniaApp"
         Title="Avalonia Theme Manager" Width="1120" Height="700"
         mc:Ignorable="d" d:DesignWidth="1120" d:DesignHeight="700"
+        WindowStartupLocation="CenterScreen"
         Foreground="{DynamicResource ThemeForegroundBrush}">
   <Window.Resources>
     <StreamGeometry x:Key="DarkTheme">M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Zm0-2V4a8 8 0 1 1 0 16Z</StreamGeometry>
