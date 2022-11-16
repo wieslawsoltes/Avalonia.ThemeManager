@@ -1,0 +1,23 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:AvaloniaApp"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="2500"
+             x:Class="AvaloniaApp.ColorsPage">
+
+  <ItemsControl Name="ItemsControl">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <StackPanel Margin="40 0 40 0" />
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    <ItemsControl.ItemTemplate>
+      <DataTemplate DataType="local:ColorResource">
+        <local:ColorPage Color="{Binding Color}" 
+                         Key="{Binding Key}" />
+      </DataTemplate>
+    </ItemsControl.ItemTemplate>
+  </ItemsControl>
+
+</UserControl>
