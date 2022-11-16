@@ -29,7 +29,7 @@ public partial class ColorsPage : UserControl
     // Accent Colours
     // https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Accents/AccentColors.xaml
 
-    private string[] _colorKeys = 
+    private readonly string[] _colorKeys = 
     {
         "SystemAltHighColor",
         "SystemAltLowColor",
@@ -68,13 +68,13 @@ public partial class ColorsPage : UserControl
         "SystemAccentColorLight3",
     };
 
-    public ObservableCollection<ColorResource> ColorResources { get; set; }
+    private readonly ObservableCollection<ColorResource> _colorResources;
 
     public ColorsPage()
     {
         InitializeComponent();
 
-        ColorResources = new ObservableCollection<ColorResource>();
+        _colorResources = new ObservableCollection<ColorResource>();
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
@@ -88,7 +88,7 @@ public partial class ColorsPage : UserControl
                 Application.Current.TryFindResource(colorKey, out var resource);
                 if (resource is Color color)
                 {
-                    ColorResources.Add(new ColorResource(colorKey, color));
+                    _colorResources.Add(new ColorResource(colorKey, color));
                 }
             }
         }
@@ -96,7 +96,7 @@ public partial class ColorsPage : UserControl
         var itemsControl = this.FindControl<ItemsControl>("ItemsControl");
         if (itemsControl is { })
         {
-            itemsControl.Items = ColorResources;
+            itemsControl.Items = _colorResources;
         }
     }
 
