@@ -81,11 +81,11 @@ public partial class ColorsPage : UserControl
     {
         base.OnAttachedToVisualTree(e);
 
-        if (Application.Current?.Resources is { })
+        if (Application.Current is { } application)
         {
             foreach (var colorKey in _colorKeys)
             {
-                Application.Current.TryFindResource(colorKey, out var resource);
+                application.TryFindResource(colorKey, out var resource);
                 if (resource is Color color)
                 {
                     _colorResources.Add(new ColorResource(colorKey, color));
