@@ -60,7 +60,8 @@
         </Popup>
         <Border Name="Border" Classes="color" />
       </Panel>
-      <TextBlock Classes="color" Text="{Binding $parent[UserControl].Key}" />
+      <TextBlock Classes="color" 
+                 Text="{Binding $parent[UserControl].Key}" />
     </StackPanel>
   </Panel>
 </UserControl>
