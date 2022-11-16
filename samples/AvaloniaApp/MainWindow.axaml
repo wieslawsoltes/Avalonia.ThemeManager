@@ -13,7 +13,7 @@
   </Window.Resources>
   <Grid RowDefinitions="Auto,*">
     <Panel Grid.Row="0" Margin="40,20,40,20">
-      <Button x:Name="Theme" Background="Transparent">
+      <Button x:Name="ThemeButton" Background="Transparent">
         <PathIcon Width="24" Height="24" Opacity="0.6" Data="{StaticResource DarkTheme}" />
       </Button>
     </Panel>
@@ -23,13 +23,13 @@
                       HorizontalScrollBarVisibility="Auto" 
                       VerticalScrollBarVisibility="Auto"
                       HorizontalAlignment="Stretch">
-          <local:PreviewPage HorizontalAlignment="Center" />
+          <local:PreviewPage Name="PreviewPage" HorizontalAlignment="Center" />
         </ScrollViewer>
         <ScrollViewer Grid.Column="2"
                       HorizontalScrollBarVisibility="Disabled" 
                       VerticalScrollBarVisibility="Auto"
                       HorizontalAlignment="Stretch">
-          <local:ColorsPage HorizontalAlignment="Center" />
+          <local:ColorsPage Name="ColorsPage" HorizontalAlignment="Center" />
         </ScrollViewer>
       </Grid>
     </Panel>
