@@ -7,16 +7,17 @@
              x:Class="AvaloniaApp.ColorPage">
   <UserControl.Styles>
     <Style Selector="StackPanel.color">
-      <Setter Property="Orientation" Value="Vertical" />
+      <Setter Property="Orientation" Value="Horizontal" />
       <Setter Property="Spacing" Value="0" />
     </Style>
     <Style Selector="Border.color">
       <Setter Property="Margin" Value="4" />
       <Setter Property="HorizontalAlignment" Value="Left" />
       <Setter Property="VerticalAlignment" Value="Center" />
-      <Setter Property="BorderBrush" Value="{DynamicResource SystemChromeAltLowColor}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource ButtonForeground}" />
       <Setter Property="BorderThickness" Value="1" />
-      <Setter Property="Width" Value="230" />
+      <Setter Property="CornerRadius" Value="4" />
+      <Setter Property="Width" Value="150" />
       <Setter Property="Height" Value="32" />
     </Style>
     <Style Selector="TextBlock.color">
@@ -25,12 +26,11 @@
       <Setter Property="HorizontalAlignment" Value="Left" />
       <Setter Property="VerticalAlignment" Value="Center" />
       <Setter Property="TextAlignment" Value="Left" />
-      <Setter Property="FontSize" Value="12" />
+      <Setter Property="FontSize" Value="13" />
     </Style>
   </UserControl.Styles>
   <Panel>
     <StackPanel Classes="color" Background="Transparent" ClipToBounds="False">
-      <TextBlock Classes="color" Text="{Binding $parent[UserControl].Key}" />
       <Panel Name="Panel" Background="Transparent">
         <Popup Name="Popup"
                IsLightDismissEnabled="True"
@@ -60,6 +60,7 @@
         </Popup>
         <Border Name="Border" Classes="color" />
       </Panel>
+      <TextBlock Classes="color" Text="{Binding $parent[UserControl].Key}" />
     </StackPanel>
   </Panel>
 </UserControl>
