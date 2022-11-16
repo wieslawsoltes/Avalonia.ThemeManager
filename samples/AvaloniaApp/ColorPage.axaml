@@ -16,7 +16,7 @@
       <Setter Property="VerticalAlignment" Value="Center" />
       <Setter Property="BorderBrush" Value="{DynamicResource ButtonForeground}" />
       <Setter Property="BorderThickness" Value="1" />
-      <Setter Property="CornerRadius" Value="4" />
+      <Setter Property="CornerRadius" Value="3" />
       <Setter Property="Width" Value="150" />
       <Setter Property="Height" Value="32" />
     </Style>
