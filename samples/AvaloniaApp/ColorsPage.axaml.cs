@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -12,10 +13,13 @@ public class ColorResource
 
     public Color Color { get; set; }
 
-    public ColorResource(string key, Color color)
+    public Action Update { get; set; }
+    
+    public ColorResource(string key, Color color, Action update)
     {
         Key = key;
         Color = color;
+        Update = update;
     }
 }
 
@@ -70,6 +74,10 @@ public partial class ColorsPage : UserControl
 
     private readonly ObservableCollection<ColorResource> _colorResources;
 
+    public Control? Preview { get; set; }
+
+    private bool _canUpdate = false;
+    
     public ColorsPage()
     {
         InitializeComponent();
@@ -81,6 +89,38 @@ public partial class ColorsPage : UserControl
     {
         base.OnAttachedToVisualTree(e);
 
+        UpdateColorResources();
+    }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
+
+    public void UpdatePreview()
+    {
+        if (!_canUpdate)
+        {
+            return;
+        }
+
+        if (Preview is { })
+        {
+            foreach (var colorResource in _colorResources)
+            {
+                // TODO:
+                // Preview.Resources[colorResource.Key] = colorResource.Color;
+                // Application.Current.Resources[colorResource.Key] = colorResource.Color;
+            }
+        }
+    }
+    
+    public void UpdateColorResources()
+    {
+        _canUpdate = false;
+
+        _colorResources.Clear();
+
         if (Application.Current is { } application)
         {
             foreach (var colorKey in _colorKeys)
@@ -88,7 +128,7 @@ public partial class ColorsPage : UserControl
                 application.TryFindResource(colorKey, out var resource);
                 if (resource is Color color)
                 {
-                    _colorResources.Add(new ColorResource(colorKey, color));
+                    _colorResources.Add(new ColorResource(colorKey, color, UpdatePreview));
                 }
             }
         }
@@ -98,11 +138,8 @@ public partial class ColorsPage : UserControl
         {
             itemsControl.Items = _colorResources;
         }
-    }
 
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
+        _canUpdate = true;
     }
 }
 
