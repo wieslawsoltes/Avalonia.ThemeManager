@@ -58,6 +58,12 @@ public partial class ColorPage : UserControl
                 border.Background = new ImmutableSolidColorBrush(color);
 
                 // Application.Current.Resources[Key] = color;
+
+                if (DataContext is ColorResource colorResource)
+                {
+                    colorResource.Color = color;
+                    colorResource.Update.Invoke();
+                }
             }
         }
     }
