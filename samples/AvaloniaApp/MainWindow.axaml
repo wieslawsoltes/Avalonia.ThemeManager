@@ -4,20 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AvaloniaApp"
-        Title="Avalonia Theme Manager" Width="1120" Height="700"
-        mc:Ignorable="d" d:DesignWidth="1120" d:DesignHeight="700"
+        Title="Avalonia Theme Manager" Width="1120" Height="750"
+        mc:Ignorable="d" d:DesignWidth="1120" d:DesignHeight="750"
+        WindowStartupLocation="CenterScreen"
         Foreground="{DynamicResource ThemeForegroundBrush}">
   <Window.Resources>
     <StreamGeometry x:Key="DarkTheme">M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Zm0-2V4a8 8 0 1 1 0 16Z</StreamGeometry>
   </Window.Resources>
   <Grid RowDefinitions="Auto,*">
     <Panel Grid.Row="0" Margin="40,20,40,20">
-      <Button x:Name="Theme" Background="Transparent">
+      <Button x:Name="ThemeButton" Background="Transparent">
         <PathIcon Width="24" Height="24" Opacity="0.6" Data="{StaticResource DarkTheme}" />
       </Button>
     </Panel>
     <Panel Grid.Row="1">
-      <local:PreviewPage HorizontalAlignment="Center" />
+      <Grid ColumnDefinitions="50*, 8, 50*">
+        <ScrollViewer Grid.Column="0"
+                      HorizontalScrollBarVisibility="Auto" 
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalAlignment="Stretch">
+          <local:PreviewPage Name="PreviewPage" HorizontalAlignment="Center" />
+        </ScrollViewer>
+        <ScrollViewer Grid.Column="2"
+                      HorizontalScrollBarVisibility="Disabled" 
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalAlignment="Stretch">
+          <local:ColorsPage Name="ColorsPage" HorizontalAlignment="Center" />
+        </ScrollViewer>
+      </Grid>
     </Panel>
   </Grid>
 </Window>
