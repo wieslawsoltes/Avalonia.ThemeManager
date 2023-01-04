@@ -1,13 +1,10 @@
-﻿using System;
-using Avalonia.Themes.Simple;
+﻿using Avalonia.Themes.Simple;
 
 namespace Avalonia.ThemeManager;
 
 public class SimpleThemeManager : IThemeManager
 {
-    private static readonly Uri BaseUri = new("avares://Avalonia.ThemeManager/Styles");
-
-    private static readonly SimpleTheme Simple = new(BaseUri)
+    private static readonly SimpleTheme Simple = new()
     {
         Mode = SimpleThemeMode.Light
     };

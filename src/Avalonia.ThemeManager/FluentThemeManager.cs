@@ -1,13 +1,10 @@
-﻿using System;
-using Avalonia.Themes.Fluent;
+﻿using Avalonia.Themes.Fluent;
 
 namespace Avalonia.ThemeManager;
 
 public class FluentThemeManager : IThemeManager
 {
-    private static readonly Uri BaseUri = new("avares://Avalonia.ThemeManager/Styles");
-
-    private static readonly FluentTheme Fluent = new(BaseUri)
+    private static readonly FluentTheme Fluent = new()
     {
         Mode = FluentThemeMode.Light
     };
