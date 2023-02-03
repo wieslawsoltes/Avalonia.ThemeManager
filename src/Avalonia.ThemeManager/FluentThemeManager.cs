@@ -1,4 +1,5 @@
-﻿using Avalonia.Themes.Fluent;
+﻿using Avalonia.Styling;
+using Avalonia.Themes.Fluent;
 
 namespace Avalonia.ThemeManager;
 
@@ -6,7 +7,6 @@ public class FluentThemeManager : IThemeManager
 {
     private static readonly FluentTheme Fluent = new()
     {
-        Mode = FluentThemeMode.Light
     };
 
     public void Switch(int index)
@@ -21,20 +21,14 @@ public class FluentThemeManager : IThemeManager
             // Fluent Light
             case 0:
             {
-                if (Fluent.Mode != FluentThemeMode.Light)
-                {
-                    Fluent.Mode = FluentThemeMode.Light;
-                }
+                Application.Current.RequestedThemeVariant = ThemeVariant.Light;
                 Application.Current.Styles[0] = Fluent;
                 break;
             }
             // Fluent Dark
             case 1:
             {
-                if (Fluent.Mode != FluentThemeMode.Dark)
-                {
-                    Fluent.Mode = FluentThemeMode.Dark;
-                }
+                Application.Current.RequestedThemeVariant = ThemeVariant.Dark;
                 Application.Current.Styles[0] = Fluent;
                 break;
             }

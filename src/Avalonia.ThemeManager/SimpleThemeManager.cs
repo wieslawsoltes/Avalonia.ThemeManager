@@ -1,4 +1,5 @@
-﻿using Avalonia.Themes.Simple;
+﻿using Avalonia.Styling;
+using Avalonia.Themes.Simple;
 
 namespace Avalonia.ThemeManager;
 
@@ -6,7 +7,6 @@ public class SimpleThemeManager : IThemeManager
 {
     private static readonly SimpleTheme Simple = new()
     {
-        Mode = SimpleThemeMode.Light
     };
 
     public void Switch(int index)
@@ -21,20 +21,14 @@ public class SimpleThemeManager : IThemeManager
             // Simple Light
             case 0:
             {
-                if (Simple.Mode != SimpleThemeMode.Light)
-                {
-                    Simple.Mode = SimpleThemeMode.Light;
-                }
+                Application.Current.RequestedThemeVariant = ThemeVariant.Light;
                 Application.Current.Styles[0] = Simple;
                 break;
             }
             // Simple Dark
             case 1:
             {
-                if (Simple.Mode != SimpleThemeMode.Dark)
-                {
-                    Simple.Mode = SimpleThemeMode.Dark;
-                }
+                Application.Current.RequestedThemeVariant = ThemeVariant.Dark;
                 Application.Current.Styles[0] = Simple;
                 break;
             }
