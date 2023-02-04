@@ -5,9 +5,7 @@ namespace Avalonia.ThemeManager;
 
 public class FluentThemeManager : IThemeManager
 {
-    private static readonly FluentTheme Fluent = new()
-    {
-    };
+    private static readonly FluentTheme s_fluent = new();
 
     public void Switch(int index)
     {
@@ -16,27 +14,16 @@ public class FluentThemeManager : IThemeManager
             return;
         }
 
-        switch (index)
+        Application.Current.RequestedThemeVariant = index switch
         {
-            // Fluent Light
-            case 0:
-            {
-                Application.Current.RequestedThemeVariant = ThemeVariant.Light;
-                Application.Current.Styles[0] = Fluent;
-                break;
-            }
-            // Fluent Dark
-            case 1:
-            {
-                Application.Current.RequestedThemeVariant = ThemeVariant.Dark;
-                Application.Current.Styles[0] = Fluent;
-                break;
-            }
-        }
+            0 => ThemeVariant.Light,
+            1 => ThemeVariant.Dark,
+            _ => Application.Current.RequestedThemeVariant
+        };
     }
 
     public void Initialize(Application application)
     {
-        application.Styles.Insert(0, Fluent);
+        application.Styles.Insert(0, s_fluent);
     }
 }
