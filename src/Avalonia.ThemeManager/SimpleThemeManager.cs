@@ -5,9 +5,7 @@ namespace Avalonia.ThemeManager;
 
 public class SimpleThemeManager : IThemeManager
 {
-    private static readonly SimpleTheme Simple = new()
-    {
-    };
+    private static readonly SimpleTheme s_simple = new();
 
     public void Switch(int index)
     {
@@ -16,27 +14,16 @@ public class SimpleThemeManager : IThemeManager
             return;
         }
 
-        switch (index)
+        Application.Current.RequestedThemeVariant = index switch
         {
-            // Simple Light
-            case 0:
-            {
-                Application.Current.RequestedThemeVariant = ThemeVariant.Light;
-                Application.Current.Styles[0] = Simple;
-                break;
-            }
-            // Simple Dark
-            case 1:
-            {
-                Application.Current.RequestedThemeVariant = ThemeVariant.Dark;
-                Application.Current.Styles[0] = Simple;
-                break;
-            }
-        }
+            0 => ThemeVariant.Light,
+            1 => ThemeVariant.Dark,
+            _ => Application.Current.RequestedThemeVariant
+        };
     }
 
     public void Initialize(Application application)
     {
-        application.Styles.Insert(0, Simple);
+        application.Styles.Insert(0, s_simple);
     }
 }
