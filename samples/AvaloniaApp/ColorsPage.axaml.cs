@@ -1,27 +1,10 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 
 namespace AvaloniaApp;
-
-public class ColorResource
-{
-    public string Key { get; set; }
-
-    public Color Color { get; set; }
-
-    public Action Update { get; set; }
-    
-    public ColorResource(string key, Color color, Action update)
-    {
-        Key = key;
-        Color = color;
-        Update = update;
-    }
-}
 
 public partial class ColorsPage : UserControl
 {
@@ -92,10 +75,6 @@ public partial class ColorsPage : UserControl
         UpdateColorResources();
     }
 
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
-    }
 
     public void UpdatePreview()
     {

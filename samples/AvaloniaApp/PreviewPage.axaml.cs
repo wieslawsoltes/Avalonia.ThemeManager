@@ -1,18 +1,11 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Controls;
 
 namespace AvaloniaApp;
 
-public class PreviewPage : UserControl
+public partial class PreviewPage : UserControl
 {
     public PreviewPage()
     {
         InitializeComponent();
-    }
-
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
     }
 }
