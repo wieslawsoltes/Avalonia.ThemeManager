@@ -23,6 +23,8 @@
   <Import Project="..\..\build\Avalonia.props" />
   <Import Project="..\..\build\Avalonia.Desktop.props" />
   <Import Project="..\..\build\Avalonia.Diagnostics.props" />
+  <Import Project="..\..\build\Avalonia.Themes.Fluent.props" />
+  <Import Project="..\..\build\Avalonia.Fonts.Inter.props" />
   <Import Project="..\..\build\ThemeEditor.Controls.ColorPicker.props" />
 
   <ItemGroup>

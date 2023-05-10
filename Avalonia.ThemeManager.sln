@@ -57,6 +57,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{71C4D519
 		build\CommunityToolkit.Mvvm.props = build\CommunityToolkit.Mvvm.props
 		build\ReactiveMarbles.PropertyChanged.props = build\ReactiveMarbles.PropertyChanged.props
 		build\ThemeEditor.Controls.ColorPicker.props = build\ThemeEditor.Controls.ColorPicker.props
+		build\Avalonia.Fonts.Inter.props = build\Avalonia.Fonts.Inter.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\build\_build.csproj", "{2107A4D4-2210-414C-9FD4-CD6F2D170E7F}"

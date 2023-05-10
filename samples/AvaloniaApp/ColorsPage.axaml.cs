@@ -115,7 +115,7 @@ public partial class ColorsPage : UserControl
         var itemsControl = this.FindControl<ItemsControl>("ItemsControl");
         if (itemsControl is { })
         {
-            itemsControl.Items = _colorResources;
+            itemsControl.ItemsSource = _colorResources;
         }
 
         _canUpdate = true;

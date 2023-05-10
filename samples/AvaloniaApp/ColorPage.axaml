@@ -34,7 +34,7 @@
       <Panel Name="Panel" Background="Transparent">
         <Popup Name="Popup"
                IsLightDismissEnabled="True"
-               PlacementMode="AnchorAndGravity"
+               Placement="AnchorAndGravity"
                PlacementGravity="TopLeft"
                PlacementAnchor="TopLeft">
           <Border Background="{DynamicResource SystemAltHighColor}"
