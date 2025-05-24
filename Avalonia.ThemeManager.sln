@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6CA09D1C-6F3E-45E3-AB6C-DB23B83E3CC8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.ThemeManager", "src\Avalonia.ThemeManager\Avalonia.ThemeManager.csproj", "{F104968E-69CB-40E0-BF32-F9CA66BED649}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThemeManager", "src\ThemeManager\ThemeManager.csproj", "{F104968E-69CB-40E0-BF32-F9CA66BED649}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{A2636C39-1B98-44F7-8D2E-CFE7E2047AD4}"
 EndProject

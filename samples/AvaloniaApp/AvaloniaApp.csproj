@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <OutputType>WinExe</OutputType>
     <IsPackable>False</IsPackable>
     <Nullable>enable</Nullable>
@@ -28,7 +28,7 @@
   <Import Project="..\..\build\ThemeEditor.Controls.ColorPicker.props" />
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Avalonia.ThemeManager\Avalonia.ThemeManager.csproj" />
+    <ProjectReference Include="..\..\src\ThemeManager\ThemeManager.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,8 +3,8 @@
 [![Build Status](https://dev.azure.com/wieslawsoltes/GitHub/_apis/build/status/wieslawsoltes.Avalonia.ThemeManager?branchName=master)](https://dev.azure.com/wieslawsoltes/GitHub/_build/latest?definitionId=97&branchName=master)
 [![CI](https://github.com/wieslawsoltes/Avalonia.ThemeManager/actions/workflows/build.yml/badge.svg)](https://github.com/wieslawsoltes/Avalonia.ThemeManager/actions/workflows/build.yml)
 
-[![NuGet](https://img.shields.io/nuget/v/Avalonia.ThemeManager.svg)](https://www.nuget.org/packages/Avalonia.ThemeManager)
-[![NuGet](https://img.shields.io/nuget/dt/Avalonia.ThemeManager.svg)](https://www.nuget.org/packages/Avalonia.ThemeManager)
+[![NuGet](https://img.shields.io/nuget/v/ThemeManager.svg)](https://www.nuget.org/packages/ThemeManager)
+[![NuGet](https://img.shields.io/nuget/dt/ThemeManager.svg)](https://www.nuget.org/packages/ThemeManager)
 [![MyGet](https://img.shields.io/myget/avaloniathememanager-nightly/vpre/Avalonia.ThemeManager.svg?label=myget)](https://www.myget.org/gallery/avaloniathememanager-nightly) 
 
 [![Github All Releases](https://img.shields.io/github/downloads/wieslawsoltes/avalonia.thememanager/total.svg)](https://github.com/wieslawsoltes/avalonia.thememanager)
@@ -85,7 +85,7 @@ namespace AvaloniaApp
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:app="clr-namespace:AvaloniaApp;assembly=AvaloniaApp"
-        xmlns:manager="clr-namespace:Avalonia.ThemeManager;assembly=Avalonia.ThemeManager"
+        xmlns:manager="clr-namespace:Avalonia.ThemeManager;assembly=ThemeManager"
         Title="AvaloniaApp" Width="800" Height="600"
         Foreground="{DynamicResource ThemeForegroundBrush}">
     <Window.Resources>
@@ -153,19 +153,19 @@ The `EnableThemes(...);` can be used to enable themes for multiple windows.
 
 Avalonia theme manager is delivered as a NuGet package.
 
-You can find the packages here [NuGet](https://www.nuget.org/packages/Avalonia.ThemeManager/) and install the package like this:
+You can find the packages here [NuGet](https://www.nuget.org/packages/ThemeManager/) and install the package like this:
 
-`Install-Package Avalonia.ThemeManager`
+`Install-Package ThemeManager`
 
 or by using nightly build feed:
 * Add `https://www.myget.org/F/avaloniathememanager-nightly/api/v2` to your package sources
 * Alternative nightly build feed `https://pkgs.dev.azure.com/wieslawsoltes/GitHub/_packaging/Nightly/nuget/v3/index.json`
-* Update your package using `Avalonia.ThemeManager` feed
+* Update your package using `ThemeManager` feed
 
 and install the package like this:
 
-`Install-Package Avalonia.ThemeManager -Pre`
+`Install-Package ThemeManager -Pre`
 
 ## License
 
-Avalonia.ThemeManager is licensed under the [MIT license](LICENSE.TXT).
+ThemeManager is licensed under the [MIT license](LICENSE.TXT).

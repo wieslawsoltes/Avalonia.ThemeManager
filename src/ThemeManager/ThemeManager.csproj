@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net461;net6.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net461;net6.0;net8.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <Nullable>enable</Nullable>
+    <RootNamespace>Avalonia.ThemeManager</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Avalonia.ThemeManager</PackageId>
+    <PackageId>ThemeManager</PackageId>
     <Description>Theme manager for Avalonia applications.</Description>
     <PackageTags>gui;avalonia;avaloniaui;theme;themes;manager;xaml</PackageTags>
   </PropertyGroup>

@@ -11,7 +11,7 @@
   <Import Project="..\..\build\XUnit.props" />
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Avalonia.ThemeManager\Avalonia.ThemeManager.csproj" />
+    <ProjectReference Include="..\..\src\ThemeManager\ThemeManager.csproj" />
   </ItemGroup>
 
 </Project>
